@@ -33,3 +33,5 @@
 
 # CMake
 CMakeFiles/
+Makefile
+CMakeCache.txt
