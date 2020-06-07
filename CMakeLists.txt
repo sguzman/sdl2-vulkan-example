@@ -1,18 +1,11 @@
 cmake_minimum_required(VERSION 3.16)
-project(libsuinput C)
+project(vulkan-example C++)
 
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra")
+set(CMAKE_VERBOSE_MAKEFILE "TRUE")
+SET(CMAKE_CXX_COMPILER "/usr/bin/g++")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 
-set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -g")
-set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O3")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 
-add_library(libsuinput SHARED src/libudev.h src/suinput.c src/suinput.h)
-
-add_executable(keyboard examples/keyboard.c)
-add_executable(mouse examples/mouse.c)
-add_executable(mouse-and-keyboard examples/mouse-and-keyboard.c)
-
-target_link_libraries(keyboard suinput)
-target_link_libraries(mouse suinput)
-target_link_libraries(mouse-and-keyboard suinput)
+add_executable(vulkan-example main.cpp vulkan_extern.cpp  vulkan_extern.h  vulkan_function.cpp  vulkan_function.h)
